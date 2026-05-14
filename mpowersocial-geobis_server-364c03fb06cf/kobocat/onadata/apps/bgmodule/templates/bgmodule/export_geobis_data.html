@@ -1,0 +1,63 @@
+{% extends 'base_test.html' %}
+
+{% block additional-headers %}
+
+
+
+
+
+    <style type="text/css">
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+{% endblock %}
+
+{% block additional-javascript %}
+
+
+    <!--datatable ended-->
+
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+        getGeobisExcelData();
+       });
+
+         function getGeobisExcelData() {
+
+            var host = window.location.hostname;
+            var port = window.location.port;
+            $.ajax({
+                        type : 'POST',
+                        data: {
+                        'host': host,
+                        'port': port},
+
+                            url : "/bgmodule/get_geobis_data/",
+                            success : function(data) {
+                                window.location.href = data;
+                                //window.location = '/'+data;
+                            }
+                        }); //ajax end
+
+            }
+    </script>
+
+
+
+{% endblock %}
+
+
+
+
